@@ -2,6 +2,7 @@
   <div class="quill-editor-box">
     <div class="quill-editor-title">
       <input v-model="title" :placeholder="'标题'" />
+      <v-button type="secondary" @click="save">保存</v-button>
     </div>
     <!-- <ripple></ripple> -->
     <quill-editor ref="TextEditor"
@@ -14,16 +15,20 @@
 
 <script>
 import { quillEditor  } from 'vue-quill-editor'
+import vButton from 'components/button'
+import {invoke} from 'src/api'
 // import Ripple from 'components/ripple'
 export default {
   components: {
     quillEditor,
+    vButton
     // Ripple
   },
   data () {
     return {
       title: '',
       content: '',
+      format: 'MMM Do YYYY, h:mm:ss a',
       editorOption: {
         placeholder: '写下你的心情...',
         readOnly: false,
@@ -52,6 +57,19 @@ export default {
   methods: {
     onEditorChange ({editor, html, text}) {
       // this.content = html
+    },
+    save () {
+      const args = {
+        title: this.title,
+        content: this.content,
+        date: moment().format(this.format)
+      }
+      invoke('api/Notes.insert',args)
+        .then((res) => {
+          Message.success({
+            message: res.msg
+          })
+        })
     }
   }
 }
@@ -65,11 +83,18 @@ export default {
   .quill-editor-title {
     border: solid 1px #ccc;
     border-bottom: none;
+    position: relative;
+
+    .button {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
 
     input {
       border: none;
       width: 100%;
-      height: 40px;
+      height: 34px;
       text-align: center;
       font-size: 23px;
       line-height: 23px;

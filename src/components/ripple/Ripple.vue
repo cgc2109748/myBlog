@@ -115,37 +115,4 @@ export default {
 </script>
 
 <style lang="scss">
-// @import './styles/imports';
-.ripple {
-    border-radius: inherit;
-    bottom: 0;
-    display: block;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-    // Forces webkit to properly contain content within border-radius
-    -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-}
-.ripple__ink {
-    background-clip: padding-box;
-    background-color: currentColor;
-    border-radius: 50%;
-    height: 0;
-    opacity: 0.2;
-    pointer-events: none;
-    position: absolute;
-    transform: scale(0);
-    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-    user-select: none;
-    width: 0;
-    &.is-held {
-        opacity: 0.4;
-        transform: scale(1);
-    }
-    &.is-done {
-        opacity: 0!important;
-    }
-}
 </style>

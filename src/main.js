@@ -5,8 +5,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './App'
+
 import _ from 'lodash'
 window._ = _
+import moment from 'moment'
+moment.locale('zh-cn')
+window.moment = moment
 
 import 'font-awesome/scss/font-awesome.scss'
 import 'src/assets/styles/index.scss'

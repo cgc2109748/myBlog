@@ -1,0 +1,278 @@
+.button {
+  -ms-flex-align: center;
+  align-items: center;
+  background: none;
+  border-radius: .125rem;
+  border: none;
+  cursor: pointer;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica,Arial,sans-serif;
+  font-size: .875rem;
+  font-weight: 500;
+  height: 2.25rem;
+  -ms-flex-pack: center;
+  justify-content: center;
+  letter-spacing: .02em;
+  line-height: 1;
+  min-width: 5rem;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  transition: all .3s;
+  &::-moz-focus-inner {
+    border: 0;
+  }
+  &.has-focus-ring:focus .button__focus-ring {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+body[modality=keyboard] .button:focus .button__focus-ring {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.button.is-raised {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.1s;
+  &.has-focus-ring:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.22), 0 3px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+body[modality=keyboard] .button.is-raised:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.22), 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+  &.is-loading .button__content {
+    opacity: 0;
+  }
+  &.is-disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+}
+
+.button__content {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  transition: opacity .3s ease;
+  z-index: 1;
+}
+
+.button__icon {
+  margin-left: -.25rem;
+  margin-right: .375rem;
+  margin-top: -0.125rem;
+}
+
+.button__dropdown-icon {
+  font-size: 1.125rem;
+  margin-left: .125rem;
+  margin-right: -0.375rem;
+}
+
+.button__focus-ring {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.ui-progress-circular.button__progress {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.button--icon-position-right .button__icon {
+  margin-left: .375rem;
+  margin-right: -.25rem;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.button--size-small {
+  font-size: .875rem;
+  height: 2rem;
+  padding-left: .75rem;
+  padding-right: 0.75rem;
+  .button__icon {
+    margin-left: 0;
+    margin-top: 0;
+    .ui-icon {
+      font-size: 1.125rem;
+    }
+  }
+  .button__dropdown-icon {
+    margin-right: -0.25rem;
+  }
+  &.button--icon-position-right .button__icon {
+    margin-left: .375rem;
+    margin-right: 0;
+  }
+}
+
+.button--size-large {
+  font-size: 1rem;
+  height: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  .button__icon {
+    margin-left: -.25rem;
+    margin-right: 0.5rem;
+  }
+  .button__dropdown-icon {
+    font-size: 1.5rem;
+    margin-left: 0.25rem;
+  }
+  &.button--icon-position-right .button__icon {
+    margin-left: .5rem;
+    margin-right: -0.25rem;
+  }
+}
+
+.button--type-primary.button--color-default {
+  background-color: #eee;
+  color: rgba(0, 0, 0, 0.87);
+  &.has-dropdown-open, &.has-focus-ring:focus, &:hover:not(.is-disabled) {
+    background-color: #dbdbdb;
+  }
+}
+
+body[modality=keyboard] .button--type-primary.button--color-default:focus {
+  background-color: #dbdbdb;
+}
+
+.button--type-primary {
+  &.button--color-default {
+    .ui-ripple-ink__ink {
+      opacity: 0.2;
+    }
+    .button__dropdown-icon, .button__icon {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+  &.button--color-accent, &.button--color-green, &.button--color-orange, &.button--color-primary, &.button--color-red {
+    color: #fff;
+  }
+  &.button--color-accent .ui-ripple-ink__ink, &.button--color-green .ui-ripple-ink__ink, &.button--color-orange .ui-ripple-ink__ink, &.button--color-primary .ui-ripple-ink__ink, &.button--color-red .ui-ripple-ink__ink {
+    opacity: 0.4;
+  }
+  &.button--color-primary {
+    background-color: #2196f3;
+    &.has-dropdown-open, &.has-focus-ring:focus, &:hover:not(.is-disabled) {
+      background-color: #0c7cd5;
+    }
+  }
+}
+
+body[modality=keyboard] .button--type-primary.button--color-primary:focus {
+  background-color: #0c7cd5;
+}
+
+.button--type-primary.button--color-accent {
+  background-color: #d500f9;
+  &.has-dropdown-open, &.has-focus-ring:focus, &:hover:not(.is-disabled) {
+    background-color: #a900c6;
+  }
+}
+
+body[modality=keyboard] .button--type-primary.button--color-accent:focus {
+  background-color: #a900c6;
+}
+
+.button--type-primary.button--color-green {
+  background-color: #4caf50;
+  &.has-dropdown-open, &.has-focus-ring:focus, &:hover:not(.is-disabled) {
+    background-color: #3d8b40;
+  }
+}
+
+body[modality=keyboard] .button--type-primary.button--color-green:focus {
+  background-color: #3d8b40;
+}
+
+.button--type-primary.button--color-orange {
+  background-color: #ff9800;
+  &.has-dropdown-open, &.has-focus-ring:focus, &:hover:not(.is-disabled) {
+    background-color: #cc7a00;
+  }
+}
+
+body[modality=keyboard] .button--type-primary.button--color-orange:focus {
+  background-color: #cc7a00;
+}
+
+.button--type-primary.button--color-red {
+  background-color: #f44336;
+  &.has-dropdown-open, &.has-focus-ring:focus, &:hover:not(.is-disabled) {
+    background-color: #ea1c0d;
+  }
+}
+
+body[modality=keyboard] .button--type-primary.button--color-red:focus {
+  background-color: #ea1c0d;
+}
+
+.button--type-secondary {
+  background-color: transparent;
+  &.has-dropdown-open, &.has-focus-ring:focus, &:hover:not(.is-disabled) {
+    background-color: #e6e6e6;
+  }
+}
+
+body[modality=keyboard] .button--type-secondary:focus {
+  background-color: #e6e6e6;
+}
+
+.button--type-secondary {
+  &.button--color-default {
+    color: rgba(0, 0, 0, 0.87);
+    .button__icon {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+  &.button--color-primary {
+    color: #2196f3;
+  }
+  &.button--color-accent {
+    color: #d500f9;
+  }
+  &.button--color-green {
+    color: #43a047;
+  }
+  &.button--color-orange {
+    color: #ff9800;
+  }
+  &.button--color-red {
+    color: #f44336;
+  }
+}
