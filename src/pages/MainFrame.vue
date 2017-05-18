@@ -11,7 +11,7 @@
           <span class="gender boy" title="男"></span> {{ '深圳 Web前端工程师' }}
         </p>
         <p class="user-desc">
-          {{ '这里是个人信息简介' }}
+          {{ '学习使我快乐 优秀是一种习惯' }}
         </p>
         <p></p>
       </div>
@@ -28,6 +28,7 @@
           <v-menu mode="vertical" class="menu-vertical-demo">
             <!-- <v-menu-item-group title="分组一"> -->
               <v-menu-item
+                :ref="item.name"
                 default-active="1"
                 :index="item.index"
                 @click="menuClick(item.router)"
@@ -71,17 +72,18 @@ export default {
     return {
       carsouselWidth: '',
       menuDataJson: [
-        {text: '主页', index: '1', icon: 'home', router: ''},
-        {text: '记事本', index: '2', icon: 'book', router: 'Notepad'},
-        {text: '相册', index: '3', icon: 'photo', router: 'Album'},
-        {text: '游记', index: '4', icon: 'plane', router: 'Travels'},
-        {text: '登出', index: '5', icon: 'sign-out', router: 'Logout'}
+        {name: 'home',text: '主页', index: '1', icon: 'home', router: ''},
+        {name: 'notes',text: '记事本', index: '2', icon: 'book', router: 'Notepad'},
+        {name: 'album',text: '相册', index: '3', icon: 'photo', router: 'Album'},
+        {name: 'travels',text: '游记', index: '4', icon: 'plane', router: 'Travels'},
+        {name: 'logout',text: '登出', index: '5', icon: 'sign-out', router: 'Logout'}
       ]
     }
   },
   mounted () {
     this.refreshAuth()
     this.setCarouselWidth()
+    this.$refs.home[0].$el.click()
   },
   methods: {
     refreshAuth () {

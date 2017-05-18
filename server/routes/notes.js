@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const mongoose = require('mongoose');
 const Notes = require('../models/notes')
 const _ = require('lodash')
 
@@ -10,7 +11,6 @@ router.post('/Notes.insert', (req, res, next) => {
   const content = req.body.args.content
   const text = req.body.args.text
   const date = req.body.args.date
-  console.log(req.body.args)
   if(req.body.args) {
     _.mapKeys(req.body.args, (val, keys) => {
       if (_.isEmpty(val)) {
@@ -47,10 +47,38 @@ router.post('/Notes.insert', (req, res, next) => {
   }
 })
 
+router.post('/Notes.update', (req, res, next) => {
+  let msg = ''
+  let valuedator = false
+  const title = req.body.args.title
+  const content = req.body.args.content
+  const text = req.body.args.text
+  const date = req.body.args.date
+  const id = req.body.args.id
+
+  if(req.body.args) {
+    _.mapKeys(req.body.args, (val, keys) => {
+      if (_.isEmpty(val)) {
+        msg = `${keys}`.concat(' ' + msg)
+        return
+      } else {
+        msg = msg
+      }
+    })
+
+    console.log(msg)
+
+    if (_.isEmpty(msg)) {
+      console.log('修改文章...')
+
+    }
+  }
+})
+
 router.get('/Notes.query', (req, res, next) => {
   console.log('获取记事本列表...')
-  console.log(req.body)
-  if (_.isEmpty(req.body)) {
+  console.log(_.isEmpty(req.query.id))
+  if (_.isEmpty(req.query.id)) {
     console.log('获取全部记事本...')
     Notes.find({})
     .then((notes) => {
@@ -67,13 +95,12 @@ router.get('/Notes.query', (req, res, next) => {
       })
     })
   } else {
-    console.log(req.body._id)
-    console.log(`获取${req.body._id}的记事本...`)
-    Notes.find({_id: req.body.id})
-    .then((notes) => {
-      notes = notes.reverse()
+    console.log(`获取id为${req.query.id}的记事本...`)
+    var id = mongoose.mongo.ObjectId(req.query.id)
+    Notes.findOne({_id: id})
+    .then((note) => {
       res.json({
-        records: notes,
+        records: note,
         success: true
       })
     }).catch((err) => {
@@ -84,6 +111,23 @@ router.get('/Notes.query', (req, res, next) => {
       })
     })
   }
+})
+
+router.post('/Notes.delete', (req, res, next) => {
+  var id = mongoose.mongo.ObjectId(req.body.args.id)
+  Notes.findByIdAndRemove(id)
+    .then((note) => {
+      res.json({
+        msg: '删除成功!',
+        success: true
+      })
+    }).catch((err) => {
+      res.json({
+        msg: `删除失败!
+              原因: ${err}`,
+        success: false
+      })
+    })
 })
 
 module.exports = router

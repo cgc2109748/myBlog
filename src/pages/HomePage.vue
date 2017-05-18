@@ -2,7 +2,7 @@
   <div class="quill-editor-box">
     <div class="quill-editor-title">
       <input v-model="title" :placeholder="'标题'" />
-      <v-button type="secondary" @click="save">保存</v-button>
+      <v-button :disabled="isSaving" type="secondary" @click="save">保存</v-button>
     </div>
     <!-- <ripple></ripple> -->
     <quill-editor ref="TextEditor"
@@ -16,7 +16,7 @@
 <script>
 import { quillEditor  } from 'vue-quill-editor'
 import vButton from 'components/button'
-import {invoke} from 'src/api'
+import {invoke, getApiJson} from 'src/api'
 // import Ripple from 'components/ripple'
 export default {
   components: {
@@ -26,6 +26,7 @@ export default {
   },
   data () {
     return {
+      id: '',
       title: '',
       content: '',
       text: '',
@@ -52,7 +53,14 @@ export default {
             ['link', 'image', 'video']
           ],
         }
-      }
+      },
+      isSaving: false
+    }
+  },
+  mounted() {
+    this.id = this.$route.query.id
+    if (!_.isEmpty(this.id)) {
+      this.loadData()
     }
   },
   methods: {
@@ -60,7 +68,17 @@ export default {
       this.content = html
       this.text = text
     },
+    loadData () {
+      getApiJson('api/Notes.query', {id: this.id})
+        .then((res) => {
+          this.title = res.records.title
+          this.content = res.records.content
+          this.text = res.records.text
+        })
+      // invoke('api/Notes.update', args)
+    },
     save () {
+      this.isSaving = true
       const args = {
         title: this.title,
         content: this.content,
@@ -75,6 +93,10 @@ export default {
           this.title = ''
           this.content = ''
           this.text = ''
+          this.isSaving = false
+        })
+        .catch((err) => {
+          this.isSaving = false
         })
     }
   }
