@@ -8,6 +8,7 @@ router.post('/Notes.insert', (req, res, next) => {
   let valuedator = false
   const title = req.body.args.title
   const content = req.body.args.content
+  const text = req.body.args.text
   const date = req.body.args.date
   console.log(req.body.args)
   if(req.body.args) {
@@ -27,6 +28,7 @@ router.post('/Notes.insert', (req, res, next) => {
       Notes.create({
         title: title,
         content: content,
+        text: text,
         date: date
       })
       msg = '保存成功!'
@@ -42,6 +44,45 @@ router.post('/Notes.insert', (req, res, next) => {
         msg: msg
       })
     }
+  }
+})
+
+router.get('/Notes.query', (req, res, next) => {
+  console.log('获取记事本列表...')
+  console.log(req.body)
+  if (_.isEmpty(req.body)) {
+    console.log('获取全部记事本...')
+    Notes.find({})
+    .then((notes) => {
+      notes = notes.reverse()
+      res.json({
+        records: notes,
+        success: true
+      })
+    }).catch((err) => {
+      console.log(err)
+      res.json({
+        msg: '获取记事本列表失败!',
+        success: false
+      })
+    })
+  } else {
+    console.log(req.body._id)
+    console.log(`获取${req.body._id}的记事本...`)
+    Notes.find({_id: req.body.id})
+    .then((notes) => {
+      notes = notes.reverse()
+      res.json({
+        records: notes,
+        success: true
+      })
+    }).catch((err) => {
+      console.log(err)
+      res.json({
+        msg: '获取记事本列表失败!',
+        success: false
+      })
+    })
   }
 })
 

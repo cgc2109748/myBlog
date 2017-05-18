@@ -28,17 +28,20 @@ const routes = [
         {
           path: '/Album',
           name: 'Album',
-          component: Album
+          component: Album,
+          meta: { noCheckSession: true }
         },
         {
           path: '/Notepad',
           name: 'Notepad',
-          component: Notepad
+          component: Notepad,
+          meta: { noCheckSession: true }
         },
         {
           path: '/Travels',
           name: 'Travels',
-          component: Travels
+          component: Travels,
+          meta: { noCheckSession: true }
         },
       ]
     }

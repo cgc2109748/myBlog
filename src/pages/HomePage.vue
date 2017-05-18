@@ -28,6 +28,7 @@ export default {
     return {
       title: '',
       content: '',
+      text: '',
       format: 'MMM Do YYYY, h:mm:ss a',
       editorOption: {
         placeholder: '写下你的心情...',
@@ -56,12 +57,14 @@ export default {
   },
   methods: {
     onEditorChange ({editor, html, text}) {
-      // this.content = html
+      this.content = html
+      this.text = text
     },
     save () {
       const args = {
         title: this.title,
         content: this.content,
+        text: this.text,
         date: moment().format(this.format)
       }
       invoke('api/Notes.insert',args)
@@ -69,6 +72,9 @@ export default {
           Message.success({
             message: res.msg
           })
+          this.title = ''
+          this.content = ''
+          this.text = ''
         })
     }
   }
@@ -78,6 +84,7 @@ export default {
 <style lang="scss">
 .quill-editor-box {
   background: #fff;
+  margin-bottom: 15px;
   // border: 1px solid #ccc;
 
   .quill-editor-title {
@@ -115,7 +122,7 @@ export default {
   .quill-editor {
 
     .ql-editor {
-      min-height: 600px;
+      min-height: 800px;
     }
   }
 }
