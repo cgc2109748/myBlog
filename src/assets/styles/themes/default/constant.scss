@@ -1,0 +1,292 @@
+// Prefix classname
+$css-prefix            : msp-;
+
+/* Colors
+-------------------------- */
+$primary-color         : #3399ff;
+$info-color            : #2db7f5;
+$success-color         : #87d068;
+$warning-color         : #fac450;
+$error-color           : #f60;
+$theme-color           : #5ac4f4;
+$theme-hover-color     : #45a0da;
+$link-color            : #3399ff;
+$link-hover-color      : lighten($link-color, 20%);
+$link-active-color     : darken($link-color, 5%);
+$selected-color        : fade-out($primary-color, 0.1);
+$subsidiary-color      : #9ea7b4;
+
+// $color-primary         : #20a0ff;
+// $color-success         : #13ce66;
+// $color-warning         : #f7ba2a;
+// $color-danger          : #ff4949;
+// $color-info            : #50BFFF;
+// $color-blue            : #2e90fe;
+// $color-blue-light      : #5da9ff;
+// $color-blue-lighter    : rgba($color-blue, 0.12);
+// $color-white           : #fff;
+// $color-black           : #000;
+// $color-grey            : #c0ccda;
+
+// -------Base & Require ------
+$body-background       : #fff;
+
+$font-family           : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+// $font-family           : "微软雅黑";
+$code-family           : Consolas,Menlo,Courier,monospace;
+$title-color           : #464c5b;
+$text-color            : #657180;
+$font-size-base        : 12px;
+$font-size-small       : 12px;
+$line-height-base      : 1.5;
+$line-height-computed  : floor(($font-size-base * $line-height-base));
+$border-radius-base    : 6px;
+$border-radius-small   : 4px;
+$cursor-disabled       : not-allowed;
+
+/* Link
+-------------------------- */
+// $link-color: #475669;
+// $link-hover-color: $color-primary;
+
+/* Border
+-------------------------- */
+$border-color-base: #d7dde4;
+$border-color-split: #e3e8ee;
+$border-width-base: 1px;
+$border-style-base: solid;
+$border-base: $border-width-base $border-style-base $border-color-base;
+
+/* Background color
+-------------------------- */
+$background-color-base  : #f7f7f7;
+$background-color-select-hover: #f3f3f3; //$input-disabled-bg;
+
+/* Shadow
+--------------------------*/
+$shadow-color           : rgba(0, 0, 0, .2);
+$shadow-card            : 0 1px 1px 0 rgba(0, 0, 0, .1);
+$shadow-up              : 0 -1px 6px $shadow-color;
+$shadow-down            : 0 1px 6px $shadow-color;
+$shadow-left            : -1px 0 6px $shadow-color;
+$shadow-right           : 1px 0 6px $shadow-color;
+$shadow-base            : $shadow-down;
+
+// Button
+$btn-font-weight        : normal;
+$btn-padding-base       : 6px 15px;
+$btn-padding-large      : 6px 15px 7px 15px;
+$btn-padding-small      : 2px 7px;
+$btn-font-size          : 12px;
+$btn-font-size-large    : 14px;
+$btn-border-radius      : 4px;
+$btn-border-radius-small: 3px;
+$btn-group-border       : shade($primary-color, 5%);
+//
+$btn-disable-color      : #c3cbd6;
+$btn-disable-bg         : $background-color-base;
+$btn-disable-border     : $border-color-base;
+//
+$btn-default-color      : $text-color;
+$btn-default-bg         : $background-color-base;
+$btn-default-border     : $border-color-base;
+
+$btn-primary-color      : #fff;
+$btn-primary-bg         : $primary-color;
+
+$btn-ghost-color        : $text-color;
+$btn-ghost-bg           : transparent;
+$btn-ghost-border       : $border-color-base;
+
+$btn-circle-size        : 32px;
+$btn-circle-size-large  : 36px;
+$btn-circle-size-small  : 24px;
+
+// // Input
+$input-height-base           : 32px;
+$input-height-large          : 36px;
+$input-height-small          : 24px;
+//
+$input-padding-horizontal    : 7px;
+$input-padding-vertical-base : 4px;
+$input-padding-vertical-small: 1px;
+$input-padding-vertical-large: 6px;
+//
+$input-placeholder-color     : $btn-disable-color;
+$input-color                 : $text-color;
+$input-border-color          : $border-color-base;
+$input-bg                    : #fff;
+//
+$input-hover-border-color    : $primary-color;
+$input-focus-border-color    : $primary-color;
+$input-disabled-bg           : #f3f3f3;
+
+/* Disable base
+-------------------------- */
+$disabled-fill-base: #EFF2F7;
+$disabled-color-base: #bbb;
+$disabled-border-base: #D3DCE6;
+
+/* Font
+-------------------------- */
+// $font-size-base: 14px;
+$font-color-base: #1f2d3d;
+$font-color-disabled-base: #bbb;
+
+/* Tag
+-------------------------- */
+$tag-color             : $font-color-base;
+$tag-fill              : #e2e2e2;
+$tag-border-radius     : $border-radius-base;
+$tag-close-color       : #666;
+
+/* Tag
+-------------------------- */
+$tag-padding: 0 5px;
+$tag-fill: #8492a6;
+$tag-border: #8492a6;
+$tag-color: #fff;
+$tag-font-size: 12px;
+$tag-border-radius: 4px;
+
+$tag-gray-fill: #e5e9f2;
+$tag-gray-border: #e5e9f2;
+$tag-gray-color: #475669;
+
+$tag-primary-fill: rgba(32,159,255,0.10);
+$tag-primary-border: rgba(32,159,255,0.20);
+$tag-primary-color: #20a0ff;
+
+$tag-success-fill: rgba(18,206,102,0.10);
+$tag-success-border: rgba(18,206,102,0.20);
+$tag-success-color: #13ce66;
+
+$tag-warning-fill: rgba(247,186,41,0.10);
+$tag-warning-border: rgba(247,186,41,0.20);
+$tag-warning-color: #f7ba2a;
+
+$tag-danger-fill: rgba(255,73,73,0.10);
+$tag-danger-border: rgba(255,73,73,0.20);
+$tag-danger-color: #ff4949;
+
+/* Loading
+--------------------------*/
+$loading-spinner-size: 42px;
+$loading-fullscreen-spinner-size: 50px;
+
+/* Toolbar
+-------------------------- */
+$toolbar-background-color: #d9d9d9;
+$toolbar-color: #000;
+$toolbar-background-color-hover: gray;
+$toolbar-color-hover: #fff;
+
+/* Message Box
+-------------------------- */
+$msgbox-width: 420px;
+$msgbox-border-radius: 3px;
+$msgbox-font-size: 16px;
+$msgbox-content-font-size: 14px;
+$msgbox-content-color: $link-color;
+$msgbox-error-font-size: 12px;
+
+$msgbox-success-color: $success-color;
+$msgbox-info-color: $info-color;
+$msgbox-warning-color: $warning-color;
+$msgbox-danger-color: $error-color;
+
+// ICONFONT
+
+// LINK
+$link-color            : #2db7f5;
+$link-hover-color      : tint($link-color, 20%);
+$link-active-color     : shade($link-color, 5%);
+$link-hover-decoration : none;
+
+// Z-index
+$zindex-spin            : 8;
+$zindex-affix           : 10;
+$zindex-back-top        : 10;
+$zindex-select          : 900;
+$zindex-modal           : 1000;
+$zindex-message         : 1010;
+$zindex-notification    : 1010;
+$zindex-tooltip         : 1060;
+$zindex-loading-bar     : 2000;
+
+// Animation
+$animation-time        : .3s;
+$ease-out              : cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in               : cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-in-out           : cubic-bezier(0.645, 0.045, 0.355, 1);
+$ease-out-back         : cubic-bezier(0.18, 0.89, 0.32, 1.28);
+$ease-in-back          : cubic-bezier(0.6, -0.3, 0.74, 0.05);
+$ease-in-out-back      : cubic-bezier(0.68, -0.55, 0.27, 1.55);
+$ease-out-circ         : cubic-bezier(0.08, 0.82, 0.17, 1);
+$ease-in-circ          : cubic-bezier(0.6, 0.04, 0.98, 0.34);
+$ease-in-out-circ      : cubic-bezier(0.78, 0.14, 0.15, 0.86);
+$ease-out-quint        : cubic-bezier(0.23, 1, 0.32, 1);
+$ease-in-quint         : cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$ease-in-out-quint     : cubic-bezier(0.86, 0, 0.07, 1);
+
+/*
+  Transition
+-------------------------- */
+$transition-time          : .2s;
+$fade-transition          : opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+$fade-linear-transition   : opacity 200ms linear;
+$md-fade-transition       : transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+$border-transition-base   : border-color .2s cubic-bezier(.645,.045,.355,1);
+$color-transition-base    : color .2s cubic-bezier(.645,.045,.355,1);
+
+// // Border color
+// $border-color-base      : #d7dde4;  // outside
+// $border-color-split     : #e3e8ee;  // inside
+//
+// $input-disabled-bg           : #f3f3f3;
+// // Background color
+// $background-color-base        : #f7f7f7;  // base
+// $background-color-select-hover: $input-disabled-bg;
+// $tooltip-bg                   : rgba(70, 76, 91, .9);
+// $head-bg                      : #f9fafc;
+// $table-thead-bg               : #f5f7f9;
+// $table-td-stripe-bg           : #f5f7f9;
+// $table-td-hover-bg            : #ebf7ff;
+// $table-td-highlight-bg        : #ebf7ff;
+// $menu-dark-active-bg          : #313540;
+//
+
+//
+// Form
+// -----------------------------
+// Legend
+$legend-color          : #999;
+$legend-border-color   : #d9d9d9;
+// Label
+$label-required-color  : #f60;
+$label-color           : #666;
+//
+//
+
+//
+//
+// // Tag
+// $tag-font-size          : 12px;
+
+
+.theme-color {
+  color: $theme-color !important;
+}
+
+button.theme-color {
+  background-color: $theme-color !important;
+  color: #FFF !important;
+}
+
+button.theme-color:hover {
+  background-color: $theme-hover-color !important;
+}
+
+$background-img: url('~assets/images/tc/bg.png');
+$button-background-color: #4FC1F4;
+$menu-item-color: #0487c4;

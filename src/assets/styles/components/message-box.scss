@@ -1,0 +1,280 @@
+.message-box__wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+  }
+}
+.message-box {
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #fff;
+    width: $msgbox-width;
+    border-radius: $msgbox-border-radius;
+    font-size: $msgbox-font-size;
+    -webkit-user-select: none;
+    overflow: hidden;
+    backface-visibility: hidden;
+
+
+    .message-box__header {
+      position: relative;
+      padding: 20px 20px 0;
+    }
+
+    .message-box__content {
+      padding: 30px 20px;
+      color: $msgbox-content-color;
+      font-size: $msgbox-content-font-size;
+      position: relative;
+    }
+
+    .message-box__close {
+      display: inline-block;
+      position: absolute;
+      top: 19px;
+      right: 20px;
+      color: #999;
+      cursor: pointer;
+      line-height: 20px;
+      text-align: center;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    .message-box__input {
+      padding-top: 15px;
+      & input.invalid {
+        border-color: $error-color;
+        &:focus {
+          border-color: $error-color;
+        }
+      }
+    }
+
+    .message-box__errormsg {
+      color: $error-color;
+      font-size: $msgbox-error-font-size;
+      min-height: 18px;
+      margin-top: 2px;
+    }
+
+    .message-box__title {
+      padding-left: 0;
+      margin-bottom: 0;
+      font-size: $msgbox-font-size;
+      font-weight: bold;
+      height: 18px;
+      color: #333;
+    }
+
+    .message-box__message {
+      margin: 0;
+
+      & p {
+        margin: 0;
+        line-height: 1.4;
+      }
+    }
+
+    .message-box__btns {
+      padding: 10px 20px 15px;
+      text-align: right;
+
+      & button:nth-child(2) {
+        margin-left: 10px;
+      }
+    }
+
+    .message-box__btns-reverse {
+      flex-direction: row-reverse;
+    }
+
+    .message-box__status {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 36px !important;
+
+      &.icon-circle-check {
+        color: $msgbox-success-color;
+      }
+
+      &.icon-information {
+        color: $msgbox-info-color;
+      }
+
+      &.icon-warning {
+        color: $msgbox-warning-color;
+      }
+
+      &.icon-circle-cross {
+        color: $msgbox-danger-color;
+      }
+    }
+}
+.msgbox-fade-enter-active {
+  animation: msgbox-fade-in .3s;
+}
+
+.msgbox-fade-leave-active {
+  animation: msgbox-fade-out .3s;
+}
+
+
+.message-box__wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    .message-box {
+        text-align: left;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: #fff;
+        width: 420px;
+        border-radius: 3px;
+        font-size: 16px;
+        -webkit-user-select: none;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        .message-box__header {
+            position: relative;
+            padding: 20px 20px 0;
+
+            .message-box__title {
+                padding-left: 0;
+                margin-bottom: 0;
+                font-size: 16px;
+                font-weight: 700;
+                height: 18px;
+                color: #333;
+            }
+
+            i {
+              display: inline-block;
+              position: absolute;
+              top: 19px;
+              right: 20px;
+              color: #999;
+              cursor: pointer;
+              line-height: 20px;
+              text-align: center;
+              transition: color .3s;
+
+              &:hover {
+                color: #20a0ff;
+              }
+            }
+        }
+
+        .message-box__content {
+            padding: 30px 20px;
+            color: #48576a;
+            font-size: 14px;
+            position: relative;
+
+            .message-box__message {
+                margin: 0;
+
+              p {
+                  margin: 0;
+                  line-height: 1.4;
+              }
+            }
+
+            .message-box__status{
+
+              &.warning{
+                color: #f7ba2a;
+              }
+            }
+        }
+
+        .message-box__btns {
+            padding: 10px 20px 15px;
+            text-align: right;
+
+            .message-box__button {
+                display: inline-block;
+                line-height: 1;
+                white-space: nowrap;
+                cursor: pointer;
+                background: #fff;
+                border: 1px solid #bfcbd9;
+                color: #1f2d3d;
+                -webkit-appearance: none;
+                text-align: center;
+                box-sizing: border-box;
+                outline: none;
+                margin: 0;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                padding: 10px 15px;
+                font-size: 14px;
+                border-radius: 4px;
+                transition: all .3s;
+
+                &:hover, &:focus {
+                  color: #20a0ff;
+                  border-color: #20a0ff;
+                }
+            }
+
+            .message-box__button--primary {
+                color: #fff;
+                background-color: #20a0ff;
+                border-color: #20a0ff;
+
+                &:focus, &:hover {
+                  background: #4db3ff;
+                  border-color: #4db3ff;
+                  color: #fff;
+                }
+            }
+
+            button:nth-child(2) {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+@keyframes msgbox-fade-in {
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes msgbox-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+}

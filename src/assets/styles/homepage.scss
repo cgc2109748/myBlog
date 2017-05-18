@@ -1,0 +1,89 @@
+.mainframe {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .container {
+    position: relative;
+  }
+
+  .banner {
+    position: relative;
+    height: 260px;
+    background: url('/static/img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+
+    .user-info {
+      position: relative;
+      width: 712px;
+      padding-left: 261px;
+      padding-right: 247px;
+      padding-top: 60px;
+      margin: 0 auto;
+
+      .user-name {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 40px;
+        text-align: left;
+        color: #fff;
+
+        span {
+          float: left;
+        }
+
+        .signicon {
+          float: left;
+          width: 25px;
+          margin: 12px 0 0 10px;
+          background-image: url('/static/img/user-info-icon.png');
+          background-repeat: no-repeat;
+          position: relative;
+          top: -2px;
+          background-position: 0 -48px;
+          height: 24px;
+        }
+      }
+
+      .about-info {
+        font-size: 14px;
+        color: #fff;
+        line-height: 20px;
+        text-align: left;
+        margin-top: 6px;
+
+        .gender {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          background: url('/static/img/gender.png') no-repeat;
+          vertical-align: -3px;
+
+          &.girl {
+            background-position: 0 -17px;
+          }
+        }
+      }
+
+      .user-desc {
+        font-size: 14px;
+        line-height: 24px;
+        color: #fff;
+        text-align: left;
+        margin-top: 20px;
+        word-break: break-all;
+        word-wrap: break-word;
+        opacity: .5;
+      }
+    }
+  }
+}

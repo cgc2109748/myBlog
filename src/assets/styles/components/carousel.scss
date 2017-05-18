@@ -1,0 +1,163 @@
+.v-carousel, {
+    -webkit-tap-highlight-color: transparent
+}
+.v-carousel,.v-carousel-list,.v-carousel-track {
+    position: relative;
+    display: block
+}
+
+.v-form-item-required .v-form-item-label:before {
+    content: '*';
+    display: inline-block;
+    margin-right: 4px;
+    line-height: 1;
+    font-family: SimSun;
+    font-size: 12px;
+    color: #f50
+}
+
+.v-carousel {
+    box-sizing: border-box;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y
+}
+
+.v-carousel-list,.v-carousel-track {
+    transform: translate3d(0,0,0)
+}
+
+.v-carousel-list {
+    overflow: hidden;
+    margin: 0;
+    padding: 0
+}
+
+.v-carousel-track {
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1
+}
+
+.v-carousel-arrow,.v-carousel-dots {
+    z-index: 10;
+    padding: 0;
+    text-align: center
+}
+
+.v-carousel-item {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    display: block
+}
+
+.v-carousel-arrow {
+    border: none;
+    outline: 0;
+    margin: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transition: .2s;
+    background-color: rgba(31,45,61,.11);
+    color: #fff;
+    font-size: 1em;
+    font-family: inherit;
+    line-height: inherit
+}
+
+.v-carousel-arrow:hover {
+    background-color: rgba(31,45,61,.5)
+}
+
+.v-carousel-arrow>* {
+    vertical-align: baseline
+}
+
+.v-carousel-arrow.left {
+    left: 16px
+}
+
+.v-carousel-arrow.right {
+    right: 16px
+}
+
+.v-carousel-arrow-always {
+    display: inherit
+}
+
+.v-carousel-arrow-hover {
+    display: inherit;
+    opacity: 0
+}
+
+.v-carousel:hover .v-carousel-arrow-hover {
+    opacity: 1
+}
+
+.v-carousel-dots {
+    display: none;
+    position: relative;
+    list-style: none;
+    width: 100%;
+    height: 17px
+}
+
+.v-carousel-dots-inside {
+    display: block;
+    position: absolute;
+    bottom: 3px
+}
+
+.v-carousel-dots-outside {
+    display: block;
+    margin-top: 3px
+}
+
+.v-carousel-dots li {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0 2px;
+    padding: 7px 0;
+    cursor: pointer
+}
+
+.v-carousel-dots li button {
+    border: 0;
+    cursor: pointer;
+    background: #8391a5;
+    opacity: .3;
+    display: block;
+    width: 16px;
+    height: 3px;
+    border-radius: 1px;
+    outline: 0;
+    font-size: 0;
+    color: transparent;
+    transition: all .5s
+}
+
+.v-carousel-dots li:hover>button {
+    opacity: .7
+}
+
+.v-carousel-dots li.v-carousel-active>button {
+    opacity: 1;
+    width: 24px
+}
+
+.v-carousel,.v-time-picker-cells-list ul li {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none
+}
