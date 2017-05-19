@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="travels">
     <div class="travels-add">
-      <v-button icon="add" @click="addTravel">新增</v-button>
+      <v-button icon="add" @click="showModal = true">新增</v-button>
     </div>
     <timeline>
       <timeline-item :label="item.label" v-for="item in dataJson">
@@ -21,21 +21,36 @@
           </div>
         </div>
       </timeline-item>
-      <timeline-item class="timeline-item">
-
-      </timeline-item>
     </timeline>
+    <modal
+    v-model="showModal"
+    title="新增游记"
+    width="800"
+    @on-ok="add"
+    @on-cancel="close">
+      <text-box
+        v-model="model"
+        floatingLabel
+        label="Name"
+        placeholder="">
+      </text-box>
+    </modal>
   </div>
 </template>
 
 <script>
 import Tag from 'components/tag'
 import vButton from 'components/button'
+import TextBox from 'components/text-box'
 import {Timeline, TimelineItem} from 'components/Timeline'
 import {invoke, getApiJson} from  'src/api'
+import Modal from 'components/modal'
 export default {
   data () {
     return {
+      model: '',
+      showModal: false,
+      modalTitle: '新增游记',
       dataJson: [],
       format: 'MMM DD YYYY, h:mm:ss a',
       args: {
@@ -86,25 +101,33 @@ export default {
         })
     },
     addTravel () {
-      invoke('api/Travels.insert', this.args)
-        .then((res) => {
-          Message.success({
-            message: '新增游记成功!'
-          })
-          this.loadData()
-        })
-        .catch((err) => {
-          Message.error({
-            message: '新增游记失败!'
-          })
-        })
+      // invoke('api/Travels.insert', this.args)
+      // .then((res) => {
+      //   Message.success({
+      //     message: '新增游记成功!'
+      //   })
+      //   this.loadData()
+      // })
+      // .catch((err) => {
+      //   Message.error({
+      //     message: '新增游记失败!'
+      //   })
+      // })
+    },
+    add () {
+
+    },
+    close () {
+
     }
   },
   components: {
     Tag,
     vButton,
     Timeline,
-    TimelineItem
+    TimelineItem,
+    Modal,
+    TextBox
   }
 }
 </script>
