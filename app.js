@@ -12,6 +12,7 @@ const FileStore = require('session-file-store')(session);
 
 const user = require('./server/routes/user');
 const notes = require('./server/routes/notes');
+const travels = require('./server/routes/travels');
 
 const app = express();
 const port = process.env.PORT || 3000
@@ -62,6 +63,7 @@ app.use(cookieParser());
 // 设定路由
 app.use('/api', user);
 app.use('/api', notes);
+app.use('/api', travels);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

@@ -13,25 +13,25 @@
         <div class="button__content">
             <div class="button__icon" v-if="icon || $slots.icon">
                 <slot name="icon">
-                    <icon :icon="icon"></icon>
+                    <btn-icon :icon="icon"></btn-icon>
                 </slot>
             </div>
 
             <slot></slot>
 
-            <icon
-                class="fa fa-dropdown"
+            <btn-icon
+                class="button__dropdown-icon"
                 v-if="hasDropdown && iconPosition !== 'right'"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M6.984 9.984h10.03L12 15z"/>
                 </svg>
-            </icon>
+            </btn-icon>
         </div>
 
         <div class="button__focus-ring" :style="focusRingStyle"></div>
 
-        <!-- <ui-progress-circular
+        <!-- <progress-circular
             class="button__progress"
             disable-transition
 
@@ -40,14 +40,27 @@
             :stroke="4.5"
 
             v-show="loading"
-        ></ui-progress-circular> -->
+        ></progress-circular> -->
 
         <ripple trigger="button" v-if="!disableRipple && !disabled"></ripple>
+
+        <popover
+            ref="dropdown"
+            trigger="button"
+            :dropdown-position="dropdownPosition"
+            :open-on="openDropdownOn"
+            @close="onDropdownClose"
+            @open="onDropdownOpen"
+            v-if="hasDropdown">
+            <slot name="dropdown"></slot>
+        </popover>
     </button>
 </template>
 
 <script>
-// import UiProgressCircular from './UiProgressCircular.vue'
+// import ProgressCircular from 'components/progress-circular'
+import Popover from 'components/popover'
+import BtnIcon from 'components/btn-icon'
 import Ripple from 'components/ripple'
 import {defaultProps} from 'src/utils'
 export default {
@@ -140,8 +153,10 @@ export default {
       }
     },
     components: {
-        // UiProgressCircular,
-        Ripple
+        // ProgressCircular,
+        Popover,
+        Ripple,
+        BtnIcon
     }
 };
 </script>
