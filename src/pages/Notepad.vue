@@ -7,25 +7,41 @@
              :index="index"
              status="finish"
              :text="item.text"
-             @click.native="edit(item._id)">
+             @click.native="show(item)">
          <div slot="content">
-           <div class="steps-delete" @click.stop="remove(item._id)">
-             <i class="fa fa-remove"></i>
+           <div class="steps-delete">
+             <i class="fa fa-edit" @click.stop="edit(item._id)"></i>
+             <i class="fa fa-remove" @click.stop="remove(item._id)"></i>
            </div>
            {{item.text}}
          </div>
        </Step>
    </Steps>
+   <modal
+   ref="noteModal"
+   v-model="showModal"
+   width="800">
+   <div slot="header" style="text-align:center">
+     {{modalTitle}}
+  </div>
+  <div slot="footer">
+      <v-button color="primary" type="primary" @click="ok">返回</v-button>
+  </div>
+ </modal>
   </div>
 </template>
 
 <script>
 import {invoke, getApiJson} from 'src/api'
 import Steps from 'components/steps'
+import Modal from 'components/modal'
+import vButton from 'components/button'
 export default {
   data () {
     return {
-      dataJson: []
+      dataJson: [],
+      showModal: false,
+      modalTitle: ''
     }
   },
   mounted () {
@@ -37,6 +53,11 @@ export default {
         .then((res) => {
           this.dataJson = res.records
         })
+    },
+    show (item) {
+      this.showModal = true
+      this.modalTitle = item.title
+      $('.modal-body').html(item.content)
     },
     edit (id) {
       router.push({
@@ -59,11 +80,16 @@ export default {
             message: res.msg
           })
         })
+    },
+    ok () {
+      this.showModal = false
     }
   },
   components: {
     Steps,
-    Step: Steps.Step
+    Step: Steps.Step,
+    Modal,
+    vButton
   }
 }
 </script>
@@ -90,5 +116,10 @@ export default {
     }
   }
 
+}
+.modal-body {
+  img {
+    max-width: 100%;
+  }
 }
 </style>
