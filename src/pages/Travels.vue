@@ -29,15 +29,23 @@
     width="800"
     @on-ok="add"
     @on-cancel="close">
-      <v-input></v-input>
+      <v-row>
+        <v-input></v-input>
+      </v-row>
+      <v-row>
+        <radio v-model="radio" label="1">1</radio>
+        <radio v-model="radio" label="2">2</radio>
+      </v-row>
     </modal>
   </div>
 </template>
 
 <script>
 import Tag from 'components/tag'
+import {vCol, vRow} from 'components/grid'
 import vButton from 'components/button'
 import vInput from 'components/input'
+import Radio from 'components/radio'
 import {Timeline, TimelineItem} from 'components/Timeline'
 import {invoke, getApiJson} from  'src/api'
 import Modal from 'components/modal'
@@ -45,8 +53,11 @@ import DatePicker from 'components/datepicker'
 export default {
   components: {
     Tag,
+    vCol,
+    vRow,
     vButton,
     vInput,
+    Radio,
     Timeline,
     TimelineItem,
     Modal,
@@ -54,6 +65,7 @@ export default {
   },
   data () {
     return {
+      radio: '1',
       model: '',
       showModal: false,
       datePickerArgs: {
