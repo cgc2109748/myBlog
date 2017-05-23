@@ -4,9 +4,10 @@
       <v-button icon="add" @click="showModal = true">新增</v-button>
     </div>
     <timeline>
-      <timeline-item :label="item.label" v-for="item in dataJson">
-        <tag :type="item.type" v-if="item.label">
+      <timeline-item :label="item.label" v-for="(item, index) in dataJson">
+        <tag :type="item.type" v-if="item.label" @click.native="toggleDatePicker(index)">
           {{item.date}}
+          <date-picker ref="datepicker" value="2015-02-02" format="DD/MM/YYYY" :args="datePickerArgs"></date-picker>
         </tag>
         <span v-if="!item.label" class="fa fa-envelope tag--primary"></span>
         <div v-if="!item.label" class="timeline-item">
@@ -45,11 +46,18 @@ import TextBox from 'components/text-box'
 import {Timeline, TimelineItem} from 'components/Timeline'
 import {invoke, getApiJson} from  'src/api'
 import Modal from 'components/modal'
+import DatePicker from 'components/datepicker'
 export default {
   data () {
     return {
       model: '',
       showModal: false,
+      datePickerArgs: {
+        name: 'start',
+        disabled: true,
+        format: 'MM-DD-YYYY',
+        type: 'DateBox-Date'
+      },
       modalTitle: '新增游记',
       dataJson: [],
       format: 'MMM DD YYYY, h:mm:ss a',
@@ -119,6 +127,9 @@ export default {
     },
     close () {
 
+    },
+    toggleDatePicker (index) {
+      this.$refs.datepicker[index]._toggleDatepicker()
     }
   },
   components: {
@@ -127,7 +138,8 @@ export default {
     Timeline,
     TimelineItem,
     Modal,
-    TextBox
+    TextBox,
+    DatePicker
   }
 }
 </script>
@@ -212,6 +224,31 @@ export default {
     float: right;
     margin-bottom: 15px;
     margin-right: 25px;
+  }
+
+  .tag {
+    &:hover {
+      cursor: pointer;
+    }
+
+    .datepicker-container {
+      color: #000;
+
+      .datepicker-button {
+        background: transparent;
+        border: none;
+        height: 0;
+        width: 0;
+      }
+
+      .datepicker_week {
+        color: rgba(0,0,0,0.8);
+      }
+
+      table.timepicker-table td a:hover {
+        color: #333;
+      }
+    }
   }
 }
 </style>
