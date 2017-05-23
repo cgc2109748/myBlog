@@ -29,12 +29,7 @@
     width="800"
     @on-ok="add"
     @on-cancel="close">
-      <text-box
-        v-model="model"
-        floatingLabel
-        label="Name"
-        placeholder="">
-      </text-box>
+      <v-input></v-input>
     </modal>
   </div>
 </template>
@@ -42,12 +37,21 @@
 <script>
 import Tag from 'components/tag'
 import vButton from 'components/button'
-import TextBox from 'components/text-box'
+import vInput from 'components/input'
 import {Timeline, TimelineItem} from 'components/Timeline'
 import {invoke, getApiJson} from  'src/api'
 import Modal from 'components/modal'
 import DatePicker from 'components/datepicker'
 export default {
+  components: {
+    Tag,
+    vButton,
+    vInput,
+    Timeline,
+    TimelineItem,
+    Modal,
+    DatePicker
+  },
   data () {
     return {
       model: '',
@@ -131,15 +135,6 @@ export default {
     toggleDatePicker (index) {
       this.$refs.datepicker[index]._toggleDatepicker()
     }
-  },
-  components: {
-    Tag,
-    vButton,
-    Timeline,
-    TimelineItem,
-    Modal,
-    TextBox,
-    DatePicker
   }
 }
 </script>
