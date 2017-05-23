@@ -27,7 +27,7 @@
     "jsonwebtoken": "^7.4.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
-    "moment-range": "^2.2.0",
+    "moment-range": "^3.0.3",
     "mongoose": "^4.9.9",
     "node-sass": "^4.5.3",
     "package": "^1.0.1",

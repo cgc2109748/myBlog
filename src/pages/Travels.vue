@@ -36,6 +36,9 @@
         <radio v-model="radio" label="1">1</radio>
         <radio v-model="radio" label="2">2</radio>
       </v-row>
+      <v-row>
+        <checkbox v-model="checked">备选项</checkbox>
+      </v-row>
     </modal>
   </div>
 </template>
@@ -45,6 +48,8 @@ import Tag from 'components/tag'
 import {vCol, vRow} from 'components/grid'
 import vButton from 'components/button'
 import vInput from 'components/input'
+import Checkbox from 'components/checkbox'
+// import CheckboxGroup from 'components/checkbox-group'
 import Radio from 'components/radio'
 import {Timeline, TimelineItem} from 'components/Timeline'
 import {invoke, getApiJson} from  'src/api'
@@ -57,6 +62,8 @@ export default {
     vRow,
     vButton,
     vInput,
+    Checkbox,
+    // CheckboxGroup,
     Radio,
     Timeline,
     TimelineItem,
@@ -65,6 +72,7 @@ export default {
   },
   data () {
     return {
+      checked: false,
       radio: '1',
       model: '',
       showModal: false,
