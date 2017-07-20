@@ -2,3 +2,9 @@
 [0517/165953.195:ERROR:process_info.cc(625)] range at 0xd9ac7ccc00000000, size 0x207 fully unreadable
 [0517/165953.195:ERROR:process_info.cc(625)] range at 0x0, size 0x207 fully unreadable
 [0518/114456.148:ERROR:settings.cc(261)] Settings magic is not 1129342067
+[0528/224426.086:ERROR:process_info.cc(625)] range at 0xd97d80fa00000000, size 0x2a9 fully unreadable
+[0528/224426.087:ERROR:process_info.cc(625)] range at 0xd97d816000000000, size 0x2a9 fully unreadable
+[0528/224426.087:ERROR:process_info.cc(625)] range at 0x0, size 0x2a9 fully unreadable
+[0528/233528.890:ERROR:process_info.cc(625)] range at 0x6c9780f800000000, size 0x22c fully unreadable
+[0528/233528.891:ERROR:process_info.cc(625)] range at 0x6c97815c00000000, size 0x22c fully unreadable
+[0528/233528.891:ERROR:process_info.cc(625)] range at 0x0, size 0x22c fully unreadable
