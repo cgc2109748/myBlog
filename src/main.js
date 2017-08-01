@@ -15,8 +15,8 @@ window.moment = moment
 import 'font-awesome/scss/font-awesome.scss'
 import 'src/assets/styles/index.scss'
 import ElementUI from 'element-ui'
-import locale from 'element-ui/lib/locale/lang/en'
-Vue.use(ElementUI, { locale })
+import 'element-ui/lib/theme-default/index.css'
+Vue.use(ElementUI)
 
 import {auth, interceptor} from './api'
 
